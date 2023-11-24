@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cart pages</title>
+<title>Order page</title>
 <%@include file="includes/head.jsp" %>
 </head>
 <body>
