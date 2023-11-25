@@ -1,3 +1,4 @@
+<%@page import="cn.techtutorial.connection.DBCon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +10,9 @@
 <body>
 
 		<%@include file="includes/navbar.jsp"%>
-
-	<%@include file="includes/footer.jsp"%>
+		
+		<% out.println(DBCon.getConnection()); %>
+		
+		<%@include file="includes/footer.jsp"%>
 </body>
 </html>
