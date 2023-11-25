@@ -1,5 +1,18 @@
+<%@page import="cn.techtutorial.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+<%
+	User auth =(User)request.getSession().getAttribute("auth");
+	if(auth!=null){
+		request.setAttribute("auth", auth);
+		//response.sendRedirect("index.jsp");
+		
+	}
+	%>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +21,7 @@
 </head>
 <body>
 	<%@include file="includes/navbar.jsp"%>
+	
 	<div class="container">
 		<div class="card w-50 mx-auto my-5">
 			<div class="card-header text-center">User Login</div>
