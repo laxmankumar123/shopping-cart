@@ -1,10 +1,10 @@
-<%@page import="cn.techtutorial.model.User"%>
+<%-- <%@page import="cn.techtutorial.model.User"%>
 <%
 	User auth =(User)request.getSession().getAttribute("auth");
 	if(auth!=null){
 		request.setAttribute("auth", auth);
 	}
-	%>
+	%> --%>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
