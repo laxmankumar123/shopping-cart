@@ -1,3 +1,5 @@
+<%@page import="cn.techtutorial.model.Cart"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="cn.techtutorial.model.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="cn.techtutorial.dao.ProductDao"%>
@@ -11,8 +13,15 @@ User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
 	request.setAttribute("auth", auth);
 }
+
 ProductDao pd = new ProductDao(DBCon.getConnection());
 List<Product> products = pd.getAllProducts();
+
+ArrayList<Cart> cart_list=(ArrayList<Cart>) session.getAttribute("cart-list");
+if(cart_list !=null){
+	request.setAttribute("cart_list", cart_list);
+}
+
 %>
 <!DOCTYPE html>
 <html>
