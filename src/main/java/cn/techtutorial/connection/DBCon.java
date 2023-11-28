@@ -12,7 +12,7 @@ public class DBCon {
 
 		if (connection == null) {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_cart", "root", "koli");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce_cart?useSSL=false", "root", "koli");
 		}
 		System.out.println("Database Connection Done");
 

@@ -33,28 +33,32 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		try(PrintWriter out = response.getWriter()) {
-//			out.println("This is Login servlet");
 			String email= request.getParameter("login-email");
 			String password= request.getParameter("login-password");
 			
 			try {
 				UserDao udao= new UserDao(DBCon.getConnection());
 				User user =udao.userLogin(email, password);
-				
+				System.out.println("--user"+user);
 				if(user!=null) {
 					//out.println("user login");
+					System.out.println("user="+user);
 					request.getSession().setAttribute("auth", user);
 					response.sendRedirect("index.jsp");
 				}else {
+					System.out.println("failed to login");
 					out.println("user login failed");
 				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
 
 				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 			
 			out.println(email+password);
+			System.out.println("--outside try catch");
+			
 			
 		} 
 	}
